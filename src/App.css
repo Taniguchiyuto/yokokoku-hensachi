@@ -1,0 +1,37 @@
+/* src/App.css */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.App-main {
+  flex: 1;
+  padding: 20px;
+}
+
+.App-footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+}
+
+p {
+  text-align: center;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .file2 {
+    width: 90%; /* 縦並びのときに幅を100%に */
+  }
+}

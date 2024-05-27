@@ -1,0 +1,12 @@
+/* src/components/Header.css */
+.header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+.header-image {
+  width: 300px; /* 画像の幅を適宜調整 */
+  height: auto;
+  padding-right: 10px; /* 自動的に高さを調整 */
+}

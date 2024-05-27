@@ -1,0 +1,32 @@
+/* src/components/Main.css */
+.main {
+  padding: 20px;
+  background-image: "/YNU_library.JPG";
+}
+/* Main.css */
+.main {
+  display: flex; /* Flexbox を使用して要素を横並びに配置 */
+  justify-content: space-around; /* 要素を均等に配置 */
+}
+
+/* File1.css と File2.css も必要に応じてスタイルを追加 */
+
+.footer {
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column; /* 幅が狭くなったときに縦並び */
+    align-items: center;
+    /* 中央揃え */
+    padding: 0px;
+  }
+
+  .file {
+    width: 100%; /* 縦並びのときに幅を100%に */
+  }
+  .yokokoku {
+    width: 100%;
+  }
+}
