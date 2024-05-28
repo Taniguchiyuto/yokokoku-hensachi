@@ -39,6 +39,10 @@
 }
 @media (max-width: 840px) {
   .hide-on-small {
-    display: none; /* 768px以下で非表示 */
+    display: none;
+    /* 768px以下で非表示 */
+  }
+  .navigation {
+    background-image: url("~/public/スクリーンショット 2024-05-28 21.48.02.png");
   }
 }
