@@ -4,11 +4,8 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <img
-        src="~/public/スクリーンショット 2024-05-25 22.05.51 2.png"
-        alt="Screenshot"
-        className="header-image"
-      />
+      {" "}
+      <img src="/ynu.png" alt="Screenshot" className="footer-image" />
     </footer>
   );
 };
