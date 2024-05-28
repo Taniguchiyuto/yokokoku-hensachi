@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   height: 400px; /* 必要に応じて高さを調整 */
-  background-image: url("/Users/makikotaniguchi/yokokoku1/my-app/public/YNU_library.JPG"); /* 公開フォルダ内の画像を指定 */
+  background-image: url("~/public/YNU_library.JPG"); /* 公開フォルダ内の画像を指定 */
   background-size: cover; /* 画像が要素全体を覆うように */
   background-position: center center; /* 画像を中央に配置 */
   background-repeat: no-repeat; /* 画像を繰り返さない */
