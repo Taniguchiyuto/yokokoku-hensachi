@@ -21,7 +21,7 @@
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.7); /* 半透明の背景色 */
   border-radius: 8px; /* 角を丸くする */
-  margin: 0 10px; /* ボタン間の余白 */
+  margin: 20px 10px; /* ボタン間の余白 */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* シャドウを追加 */
   transition: background-color 0.3s ease, transform 0.3s ease, width 0.3s ease; /* トランジション効果を追加 */
   flex-grow: 1; /* ボタンの幅を親要素に応じて変える */
@@ -45,9 +45,10 @@
   .navigation {
     background-image: url("~/public/YNU_library.webp");
   }
-}
+  .navigation a {
+    margin: 20px 10px;
+  }
 
-@media (max-width: 768px) {
   .navigation {
     width: 100%;
     height: unset;
