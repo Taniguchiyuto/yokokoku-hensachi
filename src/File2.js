@@ -16,7 +16,7 @@ const File2 = () => {
     const score = parseInt(inputScore, 10);
 
     // 偏差値を計算する（ここでは単純にスコアから10を引いた値を偏差値としています）
-    const calculatedDeviation = ((score - 638.97) / 44.77) * 10 + 50;
+    const calculatedDeviation = ((score - 634) / 45.71) * 10 + 50;
 
     // 計算された偏差値を設定
     setDeviation(calculatedDeviation);
