@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import axios from "axios";
 import Navigation from "./components/navigation";
 import Header from "./components/Header";
@@ -21,6 +22,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <Analytics />
       <Header />
       <Navigation />
       <p>
