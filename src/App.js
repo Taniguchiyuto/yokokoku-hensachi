@@ -25,6 +25,7 @@ const App = () => {
       <div className="App">
         <Helmet>
           <title>横国偏差値換算サイト</title>
+
           <meta
             name="description"
             content="本サイトは横浜国立大学2023年度における経済学部、経営学部の大まかな共通テストの偏差値の得点を算出するサイトです。"
