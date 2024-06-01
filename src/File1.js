@@ -29,7 +29,6 @@ const File1 = () => {
   const handleInputChange2 = (event) => {
     setInputScore2(event.target.value); // 入力されたスコアを更新
   };
-
   // 二つ目の偏差値を計算する関数
   const calculateDeviation2 = () => {
     // 入力されたスコアを数値に変換
