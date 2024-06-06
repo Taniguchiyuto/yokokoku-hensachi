@@ -1,0 +1,37 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-inner {
+  width: 80%;
+  max-width: 500px; /* 最大幅を設定 */
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+
+  text-align: center; /* テキストを中央揃え */
+}
+
+.modal-inner p {
+  opacity: 0.5;
+}
+.modal-close-btn {
+  font-size: 13px;
+  color: #8491a5;
+  width: 200px;
+  padding: 16px 0;
+  border: 0;
+  background-color: #f0f4f9;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}

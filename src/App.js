@@ -7,6 +7,7 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import "./App.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+
 const App = () => {
   useEffect(() => {
     // サーバーにリクエストを送信してCookieを設定
