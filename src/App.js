@@ -7,6 +7,7 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import "./App.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import BulletinBoard from "./coment.tsx";
 
 const App = () => {
   useEffect(() => {
@@ -45,10 +46,12 @@ const App = () => {
         <Analytics />
         <Header />
         <Navigation />
+
         <p>
           本サイトは横浜国立大学2023年度における経済学部、経営学部の大まかな共通テストの偏差値の得点を算出するサイトです。
         </p>
         <Main />
+        <BulletinBoard />
         <p>
           当サイトは、公開されているデータネットの情報を元に作成しておりますが、多少の誤差が含まれている可能性がございます。そのため、情報の正確性については万全を期しておりますが、完全な保証はできかねますので、ご了承ください。
         </p>
