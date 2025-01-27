@@ -58,8 +58,8 @@ const CalculateScore = () => {
       japanese: 0.5,
       socialStudies1: 0.5,
       socialStudies2: 0.5,
-      math1: 0.25,
-      math2: 0.25,
+      math1: 0.5,
+      math2: 0.5,
       englishR: 0.8,
       englishL: 0.2,
       information: 0.5,
@@ -162,9 +162,13 @@ const CalculateScore = () => {
     let 経営後期 = "経営後期";
 
     const totalScore経済前期 = calculateTotalScore(経済前期) * 0.9;
+    const totalScore経済前期2025 = calculateTotalScore(経済前期);
+    const totalScore経済後期2025 = calculateTotalScore(経済後期);
     const totalScore経済後期 = calculateTotalScore(経済後期) * 0.88888888;
     const totalScore前期 = calculateTotalScore(経営前期) * 0.88888888;
-    const totalScore後期 = calculateTotalScore(経営後期) * 1.0;
+    const totalScore後期 = calculateTotalScore(経営後期) * 0.88888888;
+    const totalScore経営後期2025 = calculateTotalScore(経営後期);
+    const totalScore経営前期2025 = calculateTotalScore(経営前期);
     console.log(totalScore前期);
 
     let calculatedDeviation前期,
@@ -182,6 +186,14 @@ const CalculateScore = () => {
     } else if (year === "2024") {
       calculatedDeviation前期 = ((totalScore前期 - 295.76) / 26.3) * 10 + 50;
       calculatedDeviation後期 = ((totalScore後期 - 295.76) / 26.3) * 10 + 50;
+    } else if (year === "2025") {
+      calculatedDeviation経済前期 =
+        ((totalScore経済前期2025 - 715.86) / 68.985) * 10 + 50;
+      calculatedDeviation経済後期 =
+        ((totalScore経済後期2025 - 719) / 55) * 10 + 50;
+      calculatedDeviation後期 =
+        ((totalScore経営後期2025 - 360) / 30.603) * 10 + 50;
+      calculatedDeviation前期 = ((totalScore経営前期2025 - 661) / 65) * 10 + 50;
     } else {
       calculatedDeviation前期 = null;
       calculatedDeviation後期 = null;
@@ -264,6 +276,7 @@ const CalculateScore = () => {
               <option value="">選択してください</option>
               <option value="2023">2023</option>
               {/* <option value="2024">2024</option> */}
+              <option value="2025">2025</option>
             </select>
           </div>
           <div style={{ marginBottom: "20px" }}>

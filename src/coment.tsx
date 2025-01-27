@@ -39,14 +39,17 @@ const BulletinBoard: React.FC = () => {
   const fetchPosts = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "posts"));
-      const fetchedPosts: Post[] = querySnapshot.docs.map((doc) => {
-        const data = doc.data();
-        return new Post({
-          id: doc.id,
-          content: data.content,
-          timestamp: data.timestamp.toDate(), // FirestoreのタイムスタンプをDate型に変換
-        });
-      });
+      //日にち順に並び替え
+      const fetchedPosts: Post[] = querySnapshot.docs
+        .map((doc) => {
+          const data = doc.data();
+          return new Post({
+            id: doc.id,
+            content: data.content,
+            timestamp: data.timestamp.toDate(), // FirestoreのタイムスタンプをDate型に変換
+          });
+        })
+        .sort((a, b) => a.timestamp.getTime() - b.timestamp.getTime());
 
       setPosts(fetchedPosts);
       console.log("Firestoreから取得した投稿:", fetchedPosts);
