@@ -33,6 +33,8 @@ class Post {
 const BulletinBoard: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [newPost, setNewPost] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const postPerPage = 10; //1ページあたりの表示件数
 
   // Firestoreからデータを取得する関数
 
@@ -49,7 +51,7 @@ const BulletinBoard: React.FC = () => {
             timestamp: data.timestamp.toDate(), // FirestoreのタイムスタンプをDate型に変換
           });
         })
-        .sort((a, b) => a.timestamp.getTime() - b.timestamp.getTime());
+        .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
 
       setPosts(fetchedPosts);
       console.log("Firestoreから取得した投稿:", fetchedPosts);
@@ -93,6 +95,12 @@ const BulletinBoard: React.FC = () => {
     setPosts(posts.filter((_, i) => i !== index)); // 指定されたインデックス以外を残す
   };
 
+  //クライアントサイドのページネーション処理
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(posts.length / postPerPage);
+
   return (
     <div
       style={{
@@ -100,30 +108,10 @@ const BulletinBoard: React.FC = () => {
         flexDirection: "column", // 縦方向に配置
         justifyContent: "center", // 縦方向の中央揃え
         alignItems: "center", // 横方向の中央揃え
-        // height: "100vh", // 画面全体の高さ
-        // textAlign: "center", // テキストを中央揃え（任意）
       }}
     >
       <h1>掲示板</h1>
-      {/* <textarea
-        value={newPost}
-        onChange={(e) => setNewPost(e.target.value)}
-        placeholder="新しい投稿を入力してください"
-        rows={4}
-        cols={50}
-        style={{
-          marginBottom: "10px", // ボタンと間隔を開ける
-        }}
-      />
-      <button
-        onClick={addPost}
-        style={{
-          marginBottom: "20px", // リストと間隔を開ける
-          padding: "10px 20px",
-        }}
-      >
-        投稿する
-      </button> */}
+
       <ul
         style={{
           listStyle: "none",
@@ -131,7 +119,7 @@ const BulletinBoard: React.FC = () => {
           width: "80%", // リストの幅を調整
         }}
       >
-        {posts.map((post, index) => (
+        {currentPosts.map((post, index) => (
           <li
             key={index} // インデックスをkeyに使用（推奨されないがidがないため暫定的に使用）
             style={{
@@ -158,23 +146,38 @@ const BulletinBoard: React.FC = () => {
               }}
             >
               <small>{post.timestamp.toLocaleString()}</small>
-              {/* <button
-                onClick={() => deletePost(index)}
-                style={{
-                  padding: "5px 10px",
-                  backgroundColor: "red",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "3px",
-                  cursor: "pointer",
-                }}
-              >
-                削除
-              </button> */}
             </div>
           </li>
         ))}
       </ul>
+
+      {/*　ページネーションコントロール */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "20px",
+        }}
+      >
+        <button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+          style={{ marginRight: "10px" }}
+        >
+          前のページ
+        </button>
+        <span>
+          ページ {currentPage} / {totalPages || 1}
+        </span>
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={currentPage >= totalPages}
+          style={{ marginLeft: "10px" }}
+        >
+          次のページ
+        </button>
+      </div>
       <textarea
         value={newPost}
         onChange={(e) => setNewPost(e.target.value)}
