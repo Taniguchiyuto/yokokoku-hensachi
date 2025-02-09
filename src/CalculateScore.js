@@ -53,6 +53,8 @@ const CalculateScore = () => {
       englishL: 0.4,
       information: 1,
       science: 1,
+      science1: 1.0,
+      science2: 1.0,
     },
     経営後期: {
       japanese: 0.5,
@@ -111,12 +113,19 @@ const CalculateScore = () => {
     if (term === "経営前期" || term === "経営後期") {
       const social1 = parseInt(scores.socialStudies1, 10) || 0;
       const social2 = parseInt(scores.socialStudies2, 10) || 0;
+      const sci1 = parseInt(scores.science1 || 0, 10);
+      const sci2 = parseInt(scores.science2 || 0, 10);
+      const maxScience = Math.max(sci1, sci2);
+
       const maxSocialScore = Math.max(social1, social2);
       const socialWeight = currentWeightings.society || 1;
+      const ScienceWeight = currentWeightings.science || 1;
+      total += maxScience * ScienceWeight;
       total += maxSocialScore * socialWeight;
       Object.entries(scores).forEach(([subject, score]) => {
         if (subject === "socialStudies1" || subject === "socialStudies2")
           return;
+        if (subject === "science1" || subject === "science2") return;
         const numericScore = parseInt(score, 10) || 0;
         const weight = currentWeightings[subject] || 1;
         total += numericScore * weight;
@@ -376,17 +385,19 @@ const CalculateScore = () => {
 
             <h2>経済偏差値(前期): {deviation.経済前期}</h2>
             <h2>経済偏差値(後期):{deviation.経済後期}</h2>
+            <h2>経営偏差値 (前期): {deviation.経営前期}</h2>
+            <h2>経営偏差値 (後期): {deviation.経営後期}</h2>
 
             {/* <h2>経営偏差値 (前期): {deviation.経営前期}</h2>
             <h2>経営偏差値 (後期): {deviation.経営後期}</h2> */}
-            {track === "文系" ? (
+            {/* {track === "文系" ? (
               <div>
                 <h2>経営偏差値 (前期): {deviation.経営前期}</h2>
                 <h2>経営偏差値 (後期): {deviation.経営後期}</h2>
               </div>
             ) : (
               <p></p>
-            )}
+            )} */}
           </div>
           <button
             onClick={handleBack}
