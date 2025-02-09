@@ -15,6 +15,7 @@ import "./App.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import BulletinBoard from "./coment.tsx";
 import CalculateScore from "./CalculateScore.js";
+import { CSSTransition } from "react-transition-group"; // 追加
 
 const App = () => {
   useEffect(() => {
@@ -52,7 +53,16 @@ const App = () => {
             <meta property="og:type" content="website" />
           </Helmet>
           <Analytics />
-          <Header />
+          <CSSTransition
+            in={true}
+            appear={true}
+            timeout={500}
+            classNames="header-fade"
+          >
+            <div>
+              <Header />
+            </div>
+          </CSSTransition>
           <Navigation />
           {/* Mainを条件付きで表示 */}
 
