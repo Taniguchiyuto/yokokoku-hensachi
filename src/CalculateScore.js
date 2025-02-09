@@ -378,15 +378,65 @@ const CalculateScore = () => {
 
       {step === 3 && (
         <>
-          <h1>③ 偏差値換算結果</h1>
+          <h1 style={{ textAlign: "center" }}>③ 偏差値換算結果</h1>
           <div>
             <p>選択された年度: {year}</p>
             <p>選択された文理: {track}</p>
 
-            <h2>経済偏差値(前期): {deviation.経済前期}</h2>
+            {/* <h2>経済偏差値(前期): {deviation.経済前期}</h2>
+
             <h2>経済偏差値(後期):{deviation.経済後期}</h2>
             <h2>経営偏差値 (前期): {deviation.経営前期}</h2>
-            <h2>経営偏差値 (後期): {deviation.経営後期}</h2>
+            <h2>経営偏差値 (後期): {deviation.経営後期}</h2> */}
+
+            <table>
+              <thead>
+                <tr>
+                  <th>偏差値換算結果</th>
+                  <th>二次試験での必要偏差値</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <h2>経済偏差値(前期): {deviation.経済前期}</h2>
+                  </td>
+                  <td>
+                    <h2 style={{ textAlign: "center" }}>
+                      {(107.449 - deviation.経済前期).toFixed(2)}
+                    </h2>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h2>経済偏差値(後期):{deviation.経済後期}</h2>
+                  </td>
+                  <td>
+                    {/* {" "} */}
+                    <h2 style={{ textAlign: "center" }}>
+                      {(114.423 - deviation.経済後期).toFixed(2)}
+                    </h2>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {/* {" "} */}
+                    <h2>経営偏差値 (前期): {deviation.経営前期}</h2>
+                  </td>
+                  <td>
+                    <h2 style={{ textAlign: "center" }}>
+                      {(166.766 - 2 * deviation.経営前期).toFixed(2)}
+                    </h2>
+                  </td>
+                </tr>
+                {/* <tr>
+                  <td>
+                    <h2>経営偏差値 (後期): {deviation.経営後期}</h2>
+                  </td>
+                  <td></td>
+                </tr> */}
+              </tbody>
+            </table>
 
             {/* <h2>経営偏差値 (前期): {deviation.経営前期}</h2>
             <h2>経営偏差値 (後期): {deviation.経営後期}</h2> */}
