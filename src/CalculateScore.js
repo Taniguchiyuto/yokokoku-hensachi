@@ -203,6 +203,15 @@ const CalculateScore = () => {
       calculatedDeviation後期 =
         ((totalScore経営後期2025 - 360) / 30.603) * 10 + 50;
       calculatedDeviation前期 = ((totalScore経営前期2025 - 661) / 65) * 10 + 50;
+    } else if (year === "2026") {
+      calculatedDeviation経済前期 =
+        ((totalScore経済前期2025 - 706.5) / 69.5) * 10 + 50;
+      calculatedDeviation経済後期 =
+        ((totalScore経済後期2025 - 704) / 55.64) * 10 + 50;
+      calculatedDeviation後期 =
+        ((totalScore経営後期2025 - 360) / 30.603) * 10 + 50;
+      calculatedDeviation前期 =
+        ((totalScore経営前期2025 - 642) / 66.97) * 10 + 50;
     } else {
       calculatedDeviation前期 = null;
       calculatedDeviation後期 = null;
@@ -286,6 +295,7 @@ const CalculateScore = () => {
               <option value="2023">2023</option>
               {/* <option value="2024">2024</option> */}
               <option value="2025">2025</option>
+              <option value="2026">2026</option>
             </select>
           </div>
           <div style={{ marginBottom: "20px" }}>

@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx", // または "react" （React 17未満の場合）
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "moduleResolution": "node"
   }
 }
