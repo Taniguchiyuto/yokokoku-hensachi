@@ -413,7 +413,7 @@ const CalculateScore = () => {
                   </td>
                   <td>
                     <h2 style={{ textAlign: "center" }}>
-                      {(107.449 - deviation.経済前期).toFixed(2)}
+                      {(110.859 - deviation.経済前期).toFixed(2)}
                     </h2>
                   </td>
                 </tr>
@@ -424,7 +424,7 @@ const CalculateScore = () => {
                   <td>
                     {/* {" "} */}
                     <h2 style={{ textAlign: "center" }}>
-                      {(114.423 - deviation.経済後期).toFixed(2)}
+                      {(115.863 - deviation.経済後期).toFixed(2)}
                     </h2>
                   </td>
                 </tr>
@@ -435,7 +435,7 @@ const CalculateScore = () => {
                   </td>
                   <td>
                     <h2 style={{ textAlign: "center" }}>
-                      {(166.766 - 2 * deviation.経営前期).toFixed(2)}
+                      {(164.12 - 2 * deviation.経営前期).toFixed(2)}
                     </h2>
                   </td>
                 </tr>
